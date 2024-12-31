@@ -24,14 +24,14 @@ export default function Transaction() {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
-            className="rounded-lg bg-gray-100"
+            className=" rounded-sm bg-gray-100"
             variant="fullWidth"
           >
             <Tab icon={<AttachMoneySharpIcon />} />
             <Tab icon={<MoneyOffIcon />} />
           </Tabs>
 
-          <Box className="p-8 bg-gray-100 rounded-lg mt-4 shadow">
+          <Box className="p-8 bg-gray-100 rounded-sm mt-4 shadow">
             {value === 0 && <Income />}
             {value === 1 && <Expense />}
           </Box>
