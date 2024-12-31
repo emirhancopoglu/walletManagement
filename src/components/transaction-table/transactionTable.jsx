@@ -1,22 +1,23 @@
 "use client";
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import { styled } from "@mui/material/styles";
 import { useTransaction } from "@/context/income/transactionContext";
 
 export default function TransactionTable() {
   const { transactionData } = useTransaction();
 
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  const StyledTableCell = styled(TableCell)(({ theme, isBold }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
+      fontWeight: isBold ? "600" : "normal",
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -74,11 +75,20 @@ export default function TransactionTable() {
           <Table aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>Kategori</StyledTableCell>
-                <StyledTableCell align="left">Açıklama</StyledTableCell>
-                <StyledTableCell align="center">Tutar</StyledTableCell>
-                <StyledTableCell align="center">İşlem Türü</StyledTableCell>
-                <StyledTableCell align="center">Tarih</StyledTableCell>
+                <StyledTableCell isBold>Kategori</StyledTableCell>
+                <StyledTableCell isBold align="left">
+                  Açıklama
+                </StyledTableCell>
+                <StyledTableCell isBold align="center">
+                  Tutar
+                </StyledTableCell>
+                <StyledTableCell isBold align="center">
+                  İşlem Türü
+                </StyledTableCell>
+                <StyledTableCell isBold align="center">
+                  Tarih
+                </StyledTableCell>
+
                 {/* <StyledTableCell align="center">Sil</StyledTableCell> */}
               </TableRow>
             </TableHead>
@@ -123,8 +133,8 @@ export default function TransactionTable() {
                 </>
               ) : (
                 <StyledTableRow>
-                  <StyledTableCell colSpan={4} align="center">
-                    Veri yok.
+                  <StyledTableCell colSpan={5} align="center">
+                    Veri bulunamadı.
                   </StyledTableCell>
                 </StyledTableRow>
               )}
