@@ -1,23 +1,36 @@
-import DateSelector from "@/utils/date/date";
 import { Button, MenuItem, TextField } from "@mui/material";
 import React from "react";
 import SaveIcon from "@mui/icons-material/Save";
+import { useTransaction } from "@/context/income/transactionContext";
 
 export default function Expense() {
-  const currencies = [
-    {
-      value: "USD",
-      label: "Yiyecek",
-    },
-    {
-      value: "EUR",
-      label: "Giyecek",
-    },
-    {
-      value: "BTC",
-      label: "Market Alışverişi",
-    },
+  const {
+    addTransaction,
+    category,
+    setCategory,
+    description,
+    setDescription,
+    amount,
+    setAmount,
+    date,
+    setDate,
+    type,
+  } = useTransaction();
+
+  const categories = [
+    { value: "Yemek", label: "Yemek" },
+    { value: "Giyim", label: "Giyim" },
+    { value: "Teknoloji", label: "Teknoloji" },
   ];
+
+  const handleSave = () => {
+    const expense = { category, description, amount, date, type: "Gider" };
+    addTransaction(expense);
+    setCategory("");
+    setDescription("");
+    setAmount("");
+    setDate("");
+  };
 
   return (
     <div className="flex flex-col">
@@ -29,6 +42,7 @@ export default function Expense() {
           variant="outlined"
           endIcon={<SaveIcon />}
           className="font-semibold capitalize"
+          onClick={handleSave}
         >
           Kaydet
         </Button>
@@ -43,8 +57,10 @@ export default function Expense() {
           size="small"
           className="w-full"
           required
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
         >
-          {currencies.map((option) => (
+          {categories.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -57,6 +73,8 @@ export default function Expense() {
           variant="outlined"
           size="small"
           fullWidth
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </div>
       <div className="flex flex-row gap-4">
@@ -68,8 +86,20 @@ export default function Expense() {
           type="number"
           required
           fullWidth
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
-        <DateSelector />
+
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          size="small"
+          type="date"
+          required
+          fullWidth
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
       </div>
     </div>
   );

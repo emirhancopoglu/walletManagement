@@ -1,13 +1,12 @@
 "use client";
-import DateSelector from "@/utils/date/date";
 import { Button, MenuItem, TextField } from "@mui/material";
 import React from "react";
 import SaveIcon from "@mui/icons-material/Save";
-import { useIncome } from "@/context/income/incomeContext";
+import { useTransaction } from "@/context/income/transactionContext";
 
 export default function Income() {
   const {
-    addIncome,
+    addTransaction,
     category,
     setCategory,
     description,
@@ -17,7 +16,7 @@ export default function Income() {
     date,
     setDate,
     type,
-  } = useIncome();
+  } = useTransaction();
 
   const categories = [
     { value: "Maaş", label: "Maaş" },
@@ -28,7 +27,7 @@ export default function Income() {
 
   const handleSave = () => {
     const income = { category, description, amount, date, type };
-    addIncome(income);
+    addTransaction(income);
     setCategory("");
     setDescription("");
     setAmount("");
@@ -44,7 +43,7 @@ export default function Income() {
           size="small"
           variant="outlined"
           endIcon={<SaveIcon />}
-          className="font-semibold capitalize"
+          className="font-semibold capitalize bg-green-400 text-green-500"
           onClick={handleSave}
         >
           Kaydet
@@ -92,8 +91,16 @@ export default function Income() {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
-
-        <DateSelector />
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          size="small"
+          type="date"
+          required
+          fullWidth
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
       </div>
     </div>
   );

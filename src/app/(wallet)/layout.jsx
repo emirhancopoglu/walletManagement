@@ -2,7 +2,7 @@ import Header from "@/components/header/header";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Montserrat } from "next/font/google";
 import "@/app/globals.css";
-import { IncomeProvider } from "@/context/income/incomeContext";
+import { TransactionProvider } from "@/context/income/transactionContext";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${MontserratFont.variable} antialiased`}>
         <AppRouterCacheProvider>
-          <IncomeProvider>
+          <TransactionProvider>
             <Header />
             {children}
-          </IncomeProvider>
+          </TransactionProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

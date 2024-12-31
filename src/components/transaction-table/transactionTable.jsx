@@ -8,10 +8,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { useIncome } from "@/context/income/incomeContext";
+import { useTransaction } from "@/context/income/transactionContext";
 
 export default function TransactionTable() {
-  const { category, description, incomeData } = useIncome();
+  const { transactionData } = useTransaction();
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -83,9 +83,9 @@ export default function TransactionTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {incomeData && incomeData.length > 0 ? (
+              {transactionData && transactionData.length > 0 ? (
                 <>
-                  {incomeData.map((item, index) => (
+                  {transactionData.map((item, index) => (
                     <StyledTableRow key={index}>
                       <StyledTableCell component="th" scope="row">
                         {item.category}

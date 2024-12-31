@@ -5,10 +5,11 @@ import WalletIcon from "@mui/icons-material/Wallet";
 import { GiMoneyStack } from "react-icons/gi";
 import { MdAttachMoney } from "react-icons/md";
 import { MdMoneyOff } from "react-icons/md";
-import { useIncome } from "@/context/income/incomeContext";
+import { useTransaction } from "@/context/income/transactionContext";
 
 export default function Stats() {
-  const { formattedTotalAmount } = useIncome();
+  const { formattedIncomeTotal, formattedExpenseTotal, formattedBalance } =
+    useTransaction();
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function Stats() {
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gelir</p>
-              <p className="font-semibold">{formattedTotalAmount} </p>
+              <p className="font-semibold">{formattedIncomeTotal} </p>
             </div>
           </div>
           <div className="rounded-sm shadow w-full h-max bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
@@ -31,7 +32,7 @@ export default function Stats() {
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gider</p>
-              <p className="font-semibold">200₺</p>
+              <p className="font-semibold">{formattedExpenseTotal}</p>
             </div>
           </div>
         </div>
@@ -42,7 +43,7 @@ export default function Stats() {
 
           <div className="flex flex-col">
             <p className="text-gray-500 font-normal text-xl">Toplam Bakiye</p>
-            <p className="font-semibold">200₺</p>
+            <p className="font-semibold">{formattedBalance}</p>
           </div>
         </div>
       </div>
