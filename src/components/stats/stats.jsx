@@ -2,6 +2,9 @@ import React from "react";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import MoneyOffCsredRoundedIcon from "@mui/icons-material/MoneyOffCsredRounded";
 import WalletIcon from "@mui/icons-material/Wallet";
+import { GiMoneyStack } from "react-icons/gi";
+import { MdAttachMoney } from "react-icons/md";
+import { MdMoneyOff } from "react-icons/md";
 
 export default function Stats() {
   return (
@@ -10,10 +13,7 @@ export default function Stats() {
         <div className="flex flex-row w-full gap-2">
           <div className="rounded-lg shadow w-full h-max bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
             <div className="rounded-full  bg-gray-200">
-              <AttachMoneyRoundedIcon
-                fontSize="large"
-                className="text-green-600"
-              />
+              <MdAttachMoney size={50} className="text-green-500 " />
             </div>
 
             <div className="flex flex-col">
@@ -23,10 +23,7 @@ export default function Stats() {
           </div>
           <div className="rounded-lg shadow w-full h-max bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
             <div className="rounded-full  bg-gray-200">
-              <MoneyOffCsredRoundedIcon
-                fontSize="large"
-                className="text-red-500"
-              />
+              <MdMoneyOff size={50} className="text-red-500" />
             </div>
 
             <div className="flex flex-col">
@@ -37,7 +34,7 @@ export default function Stats() {
         </div>
         <div className="rounded-lg shadow w-full h-full bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
           <div className="rounded-full  bg-gray-200">
-            <WalletIcon fontSize="large" className="text-green-500" />
+            <GiMoneyStack size={50} className="text-green-500" />
           </div>
 
           <div className="flex flex-col">
