@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Transaction />
-      {/* <TransactionTable /> */}
+      <TransactionTable />
     </>
   );
 }

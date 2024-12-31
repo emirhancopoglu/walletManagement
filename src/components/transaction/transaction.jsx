@@ -8,12 +8,19 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import AttachMoneySharpIcon from "@mui/icons-material/AttachMoneySharp";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import { useIncome } from "@/context/income/incomeContext";
 
 export default function Transaction() {
   const [value, setValue] = useState(0);
+  const { setType } = useIncome();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if (newValue === 0) {
+      setType("Gelir");
+    } else if (newValue === 1) {
+      setType("Gider");
+    }
   };
 
   return (

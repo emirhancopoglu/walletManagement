@@ -1,7 +1,7 @@
 "use client";
 import DateSelector from "@/utils/date/date";
 import { Button, MenuItem, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import { useIncome } from "@/context/income/incomeContext";
 
@@ -16,16 +16,18 @@ export default function Income() {
     setAmount,
     date,
     setDate,
+    type,
   } = useIncome();
 
   const categories = [
-    { value: "food", label: "Yemek" },
-    { value: "clothes", label: "Giyim" },
-    { value: "electronics", label: "Elektronik" },
+    { value: "Maaş", label: "Maaş" },
+    { value: "Kripto", label: "Kripto" },
+    { value: "Yan Gelir", label: "Yan Gelir" },
+    { value: "Diğer", label: "Diğer" },
   ];
 
   const handleSave = () => {
-    const income = { category, description, amount, date };
+    const income = { category, description, amount, date, type };
     addIncome(income);
     setCategory("");
     setDescription("");

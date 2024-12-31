@@ -10,21 +10,15 @@ export default function DateSelector() {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const { date, setDate } = useIncome();
 
-  const handleDateChange = (newValue) => {
-    setSelectedDate(newValue); // selectedDate'yi güncelle
-    const formattedDate = newValue.format("DD/MM/YYYY");
-    setDate(formattedDate); // formatlanmış tarihi context'e kaydet
-
-    // localStorage'a kaydet
-    localStorage.setItem("incomeData", formattedDate);
-  };
-
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
         label="Tarih"
         value={selectedDate}
-        onChange={handleDateChange}
+        onChange={
+          ((newValue) => setSelectedDate(newValue),
+          (e) => setDate(e.target.value))
+        }
         slotProps={{ textField: { size: "small" } }}
         className="w-full"
         format="DD/MM/YYYY"

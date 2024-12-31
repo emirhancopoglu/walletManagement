@@ -9,6 +9,7 @@ export function IncomeProvider({ children }) {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+  const [type, setType] = useState("Gelir");
 
   useEffect(() => {
     const storedData = localStorage.getItem("incomeData");
@@ -44,9 +45,10 @@ export function IncomeProvider({ children }) {
         setDescription,
         amount,
         setAmount,
+        type,
+        setType,
         date,
         setDate,
-        totalAmount,
         formattedTotalAmount,
       }}
     >
@@ -55,5 +57,4 @@ export function IncomeProvider({ children }) {
   );
 }
 
-// Custom hook to use income context
 export const useIncome = () => useContext(IncomeContext);

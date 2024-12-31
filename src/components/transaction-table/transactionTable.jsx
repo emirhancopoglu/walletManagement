@@ -8,8 +8,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useIncome } from "@/context/income/incomeContext";
 
 export default function TransactionTable() {
+  const { category, description, incomeData } = useIncome();
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -74,26 +77,57 @@ export default function TransactionTable() {
                 <StyledTableCell>Kategori</StyledTableCell>
                 <StyledTableCell align="left">Açıklama</StyledTableCell>
                 <StyledTableCell align="center">Tutar</StyledTableCell>
+                <StyledTableCell align="center">İşlem Türü</StyledTableCell>
                 <StyledTableCell align="center">Tarih</StyledTableCell>
-                <StyledTableCell align="center">Sil</StyledTableCell>
+                {/* <StyledTableCell align="center">Sil</StyledTableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <StyledTableRow key={row.name}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.category}
-                  </StyledTableCell>
-                  <StyledTableCell align="left">{row.comment}</StyledTableCell>
-                  <StyledTableCell align="center">{row.amount}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.transactionDate}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.transactionRemove}
+              {incomeData && incomeData.length > 0 ? (
+                <>
+                  {incomeData.map((item, index) => (
+                    <StyledTableRow key={index}>
+                      <StyledTableCell component="th" scope="row">
+                        {item.category}
+                      </StyledTableCell>
+                      <StyledTableCell align="left">
+                        {item.description}
+                      </StyledTableCell>
+                      <StyledTableCell align="center">
+                        {item.amount}₺
+                      </StyledTableCell>
+
+                      <StyledTableCell align="center">
+                        {item.type === "Gelir" ? (
+                          <>
+                            <div className="w-full bg-green-200 font-semibold text-green-500 rounded-full">
+                              {item.type}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="w-full bg-red-200 font-semibold text-red-500 rounded-full">
+                              {item.type}
+                            </div>
+                          </>
+                        )}
+                      </StyledTableCell>
+                      <StyledTableCell align="center">
+                        {item.date}
+                      </StyledTableCell>
+                      {/* <StyledTableCell align="center">
+                    {item.transactionRemove}
+                  </StyledTableCell> */}
+                    </StyledTableRow>
+                  ))}
+                </>
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={4} align="center">
+                    Veri yok.
                   </StyledTableCell>
                 </StyledTableRow>
-              ))}
+              )}
             </TableBody>
           </Table>
         </TableContainer>
