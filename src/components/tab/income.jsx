@@ -1,23 +1,37 @@
+"use client";
 import DateSelector from "@/utils/date/date";
 import { Button, MenuItem, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import SaveIcon from "@mui/icons-material/Save";
+import { useIncome } from "@/context/income/incomeContext";
 
 export default function Income() {
-  const currencies = [
-    {
-      value: "USD",
-      label: "Yiyecek",
-    },
-    {
-      value: "EUR",
-      label: "Giyecek",
-    },
-    {
-      value: "BTC",
-      label: "Market Alışverişi",
-    },
+  const {
+    addIncome,
+    category,
+    setCategory,
+    description,
+    setDescription,
+    amount,
+    setAmount,
+    date,
+    setDate,
+  } = useIncome();
+
+  const categories = [
+    { value: "food", label: "Yemek" },
+    { value: "clothes", label: "Giyim" },
+    { value: "electronics", label: "Elektronik" },
   ];
+
+  const handleSave = () => {
+    const income = { category, description, amount, date };
+    addIncome(income);
+    setCategory("");
+    setDescription("");
+    setAmount("");
+    setDate("");
+  };
 
   return (
     <div className="flex flex-col">
@@ -29,6 +43,7 @@ export default function Income() {
           variant="outlined"
           endIcon={<SaveIcon />}
           className="font-semibold capitalize"
+          onClick={handleSave}
         >
           Kaydet
         </Button>
@@ -43,8 +58,10 @@ export default function Income() {
           size="small"
           className="w-full"
           required
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
         >
-          {currencies.map((option) => (
+          {categories.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -57,6 +74,8 @@ export default function Income() {
           variant="outlined"
           size="small"
           fullWidth
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </div>
       <div className="flex flex-row gap-4">
@@ -68,7 +87,10 @@ export default function Income() {
           type="number"
           required
           fullWidth
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
         />
+
         <DateSelector />
       </div>
     </div>

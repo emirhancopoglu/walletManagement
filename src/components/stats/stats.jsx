@@ -5,8 +5,11 @@ import WalletIcon from "@mui/icons-material/Wallet";
 import { GiMoneyStack } from "react-icons/gi";
 import { MdAttachMoney } from "react-icons/md";
 import { MdMoneyOff } from "react-icons/md";
+import { useIncome } from "@/context/income/incomeContext";
 
 export default function Stats() {
+  const { formattedTotalAmount } = useIncome();
+
   return (
     <>
       <div className="flex flex-col w-full gap-4">
@@ -18,7 +21,7 @@ export default function Stats() {
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gelir</p>
-              <p className="font-semibold">200₺</p>
+              <p className="font-semibold">{formattedTotalAmount} </p>
             </div>
           </div>
           <div className="rounded-sm shadow w-full h-max bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
