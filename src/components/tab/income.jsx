@@ -4,6 +4,7 @@ import { Button, MenuItem, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/income/transactionContext";
+import { formatDate } from "@/utils/date/formatDate";
 
 export default function Income() {
   const {
@@ -43,7 +44,8 @@ export default function Income() {
       });
       return null;
     }
-    const income = { category, description, amount, date, type };
+    const formattedDate = formatDate(date);
+    const income = { category, description, amount, date: formattedDate, type };
     addTransaction(income);
     setCategory("");
     setDescription("");
