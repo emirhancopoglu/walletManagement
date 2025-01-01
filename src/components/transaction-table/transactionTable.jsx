@@ -71,7 +71,6 @@ export default function TransactionTable() {
           component={Paper}
           sx={{
             width: { xs: "100%", sm: "100%", md: "50%" },
-            borderRadius: "0.5rem",
           }}
           className="rounded-full max-md:w-full"
         >

@@ -4,10 +4,10 @@ import { Switch } from "@mui/material";
 import { useThemeContext } from "@/context/theme/themeContext";
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useThemeContext(); // Tema verisini alıyoruz
+  const { theme, setTheme } = useThemeContext();
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark"); // Tema değiştirme
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (

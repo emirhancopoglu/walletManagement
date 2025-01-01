@@ -22,7 +22,7 @@ ChartJS.register(
 );
 
 export default function Chart() {
-  const { transactionData } = useTransaction(); // Transaction verilerini alıyoruz
+  const { transactionData } = useTransaction();
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [],
@@ -75,7 +75,7 @@ export default function Chart() {
   }, [transactionData]);
 
   return (
-    <div className="container mx-auto w-1/2 max-md:w-full">
+    <div className="container mx-auto w-1/2 max-md:w-full shadow rounded-sm px-4 py-4">
       <Bar
         data={chartData}
         options={{
