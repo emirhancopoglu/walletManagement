@@ -1,8 +1,10 @@
-import Header from "@/components/header/header";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeProvider } from "next-themes";
 import { Montserrat } from "next/font/google";
-import "@/app/globals.css";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { TransactionProvider } from "@/context/income/transactionContext";
+import Header from "@/components/header/header";
+import { ThemeSwitchProvider } from "@/context/theme/themeContext";
+import "@/app/globals.css";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
@@ -17,13 +19,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${MontserratFont.variable} antialiased`}>
         <AppRouterCacheProvider>
-          <TransactionProvider>
-            <Header />
-            {children}
-          </TransactionProvider>
+          <ThemeProvider>
+            <ThemeSwitchProvider>
+              <TransactionProvider>
+                <Header />
+                {children}
+              </TransactionProvider>
+            </ThemeSwitchProvider>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
