@@ -8,7 +8,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import AttachMoneySharpIcon from "@mui/icons-material/AttachMoneySharp";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
-import { useTransaction } from "@/context/income/transactionContext";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import { useThemeContext } from "@/context/theme/themeContext";
 
 export default function Transaction() {

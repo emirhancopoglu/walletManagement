@@ -2,7 +2,7 @@ import React from "react";
 import { GiMoneyStack } from "react-icons/gi";
 import { MdAttachMoney } from "react-icons/md";
 import { MdMoneyOff } from "react-icons/md";
-import { useTransaction } from "@/context/income/transactionContext";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import { useThemeContext } from "@/context/theme/themeContext";
 
 export default function Stats() {

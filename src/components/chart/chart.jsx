@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useTransaction } from "@/context/income/transactionContext";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import {
   Chart as ChartJS,
   CategoryScale,

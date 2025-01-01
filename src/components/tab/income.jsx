@@ -3,7 +3,7 @@ import React from "react";
 import { Button, MenuItem, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import { Slide, toast, ToastContainer } from "react-toastify";
-import { useTransaction } from "@/context/income/transactionContext";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import { formatDate } from "@/utils/date/formatDate";
 
 export default function Income() {

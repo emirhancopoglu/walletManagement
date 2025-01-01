@@ -1,7 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import { Montserrat } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { TransactionProvider } from "@/context/income/transactionContext";
+import { TransactionProvider } from "@/context/transaction/transactionContext";
 import Header from "@/components/header/header";
 import { ThemeSwitchProvider } from "@/context/theme/themeContext";
 import "@/app/globals.css";

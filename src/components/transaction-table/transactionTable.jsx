@@ -8,11 +8,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
-import { useTransaction } from "@/context/income/transactionContext";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import Chart from "@/components/chart/chart";
 
 export default function TransactionTable() {
-  const { transactionData } = useTransaction();
+  const { transactionData, formatCurrency } = useTransaction();
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -99,7 +99,7 @@ export default function TransactionTable() {
                         {item.description}
                       </StyledTableCell>
                       <StyledTableCell align="center">
-                        {item.amount}₺
+                        {formatCurrency(item.amount)}
                       </StyledTableCell>
 
                       <StyledTableCell align="center">

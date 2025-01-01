@@ -4,7 +4,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-import { useIncome } from "@/context/income/transactionContext";
+import { useIncome } from "@/context/transaction/transactionContext";
 
 export default function DateSelector() {
   const [selectedDate, setSelectedDate] = useState(dayjs());
