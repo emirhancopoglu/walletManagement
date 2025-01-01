@@ -9,15 +9,15 @@ import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import { useTransaction } from "@/context/income/transactionContext";
+import Chart from "@/components/chart/chart";
 
 export default function TransactionTable() {
   const { transactionData } = useTransaction();
 
-  const StyledTableCell = styled(TableCell)(({ theme, isbold }) => ({
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
-      fontWeight: isbold ? "600" : "normal",
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -66,7 +66,7 @@ export default function TransactionTable() {
 
   return (
     <>
-      <div className="container mx-auto mt-4 max-xl:p-2">
+      <div className="container mx-auto mt-4 max-xl:p-2 flex flex-row  gap-4">
         <TableContainer
           component={Paper}
           sx={{
@@ -78,19 +78,11 @@ export default function TransactionTable() {
           <Table aria-label="customized table" className="max-md:w-full">
             <TableHead>
               <TableRow>
-                <StyledTableCell isbold>Kategori</StyledTableCell>
-                <StyledTableCell isbold align="left">
-                  Açıklama
-                </StyledTableCell>
-                <StyledTableCell isbold align="center">
-                  Tutar
-                </StyledTableCell>
-                <StyledTableCell isbold align="center">
-                  İşlem Türü
-                </StyledTableCell>
-                <StyledTableCell isbold align="center">
-                  Tarih
-                </StyledTableCell>
+                <StyledTableCell>Kategori</StyledTableCell>
+                <StyledTableCell align="left">Açıklama</StyledTableCell>
+                <StyledTableCell align="center">Tutar</StyledTableCell>
+                <StyledTableCell align="center">İşlem Türü</StyledTableCell>
+                <StyledTableCell align="center">Tarih</StyledTableCell>
 
                 {/* <StyledTableCell align="center">Sil</StyledTableCell> */}
               </TableRow>
@@ -144,6 +136,7 @@ export default function TransactionTable() {
             </TableBody>
           </Table>
         </TableContainer>
+        <Chart />
       </div>
     </>
   );

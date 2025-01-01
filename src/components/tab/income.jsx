@@ -28,7 +28,7 @@ export default function Income() {
   ];
 
   const handleSave = () => {
-    if (!category || !description || !amount || !date) {
+    if (!category || !amount || !date) {
       toast.warn("Boş bırakılan alanları doldurun.", {
         position: "top-center",
         autoClose: 2000,
