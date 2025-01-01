@@ -57,13 +57,14 @@ export default function Income() {
     <>
       <div className="flex flex-col">
         <div className="flex flex-row justify-between pb-4 items-center">
-          <p className="font-semibold">Yeni Bir Gelir İşlemi Oluşturun</p>
+          <p className="font-semibold text-sm">
+            Yeni Bir Gelir İşlemi Oluşturun
+          </p>
           <Button
-            color="#FFFDF0"
+            color="info"
             size="small"
             variant="outlined"
             endIcon={<SaveIcon />}
-            className="font-semibold capitalize bg-green-400 text-green-500"
             onClick={handleSave}
           >
             Kaydet

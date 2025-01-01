@@ -25,7 +25,9 @@ export default function Stats() {
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gelir</p>
-              <p className="font-semibold">{formattedIncomeTotal} </p>
+              <p className="font-semibold max-lg:text-sm">
+                {formattedIncomeTotal}{" "}
+              </p>
             </div>
           </div>
           <div
@@ -39,7 +41,9 @@ export default function Stats() {
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gider</p>
-              <p className="font-semibold">{formattedExpenseTotal}</p>
+              <p className="font-semibold max-lg:text-sm">
+                {formattedExpenseTotal}
+              </p>
             </div>
           </div>
         </div>
@@ -52,7 +56,7 @@ export default function Stats() {
 
           <div className="flex flex-col">
             <p className="text-gray-500 font-normal text-xl">Toplam Bakiye</p>
-            <p className="font-semibold">{formattedBalance}</p>
+            <p className="font-semibold max-lg:text-sm">{formattedBalance}</p>
           </div>
         </div>
       </div>

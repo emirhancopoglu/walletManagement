@@ -105,7 +105,7 @@ export default function TransactionTable() {
                       <StyledTableCell align="center">
                         {item.type === "Gelir" ? (
                           <>
-                            <div className="w-full bg-green-200 font-semibold text-green-500 rounded-full">
+                            <div className="w-full bg-green-200 font-semibold text-green-500 rounded-full max-md:px-4">
                               {item.type}
                             </div>
                           </>

@@ -61,13 +61,14 @@ export default function Expense() {
     <>
       <div className="flex flex-col">
         <div className="flex flex-row justify-between pb-4 items-center">
-          <p className="font-semibold">Yeni Bir Gider İşlemi Oluşturun</p>
+          <p className="font-semibold text-sm">
+            Yeni Bir Gider İşlemi Oluşturun
+          </p>
           <Button
-            color="#FFFDF0"
+            color="info"
             size="small"
             variant="outlined"
             endIcon={<SaveIcon />}
-            className="font-semibold capitalize"
             onClick={handleSave}
           >
             Kaydet
