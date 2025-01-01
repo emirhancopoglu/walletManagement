@@ -75,8 +75,20 @@ export default function Chart() {
   }, [transactionData]);
 
   return (
-    <div className="container mx-auto w-1/2">
-      <Bar data={chartData} options={{ responsive: true }} />
+    <div className="container mx-auto w-1/2 max-md:w-full">
+      <Bar
+        data={chartData}
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: "Kategoriye Göre Gelir ve Gider Grafiği",
+            },
+          },
+        }}
+      />
     </div>
   );
 }

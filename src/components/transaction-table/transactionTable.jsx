@@ -66,7 +66,7 @@ export default function TransactionTable() {
 
   return (
     <>
-      <div className="container mx-auto mt-4 max-xl:p-2 flex flex-row  gap-4">
+      <div className="container mx-auto mt-4 max-xl:p-2 flex flex-row  gap-4 max-md:flex-col ">
         <TableContainer
           component={Paper}
           sx={{

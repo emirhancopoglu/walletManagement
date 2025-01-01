@@ -18,12 +18,10 @@ export default function Stats() {
             className={`rounded-sm shadow w-full h-max px-4 py-4 flex flex-row items-center gap-4 ${
               theme === "dark"
                 ? "bg-[#0F1214] border border-gray-600"
-                : "bg-gray-100"
+                : "border "
             }`}
           >
-            <div className="rounded-full  bg-gray-200">
-              <MdAttachMoney size={50} className="text-green-500 " />
-            </div>
+            <MdAttachMoney size={50} className="text-green-500 " />
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gelir</p>
@@ -34,12 +32,10 @@ export default function Stats() {
             className={`rounded-sm shadow w-full h-max px-4 py-4 flex flex-row items-center gap-4 ${
               theme === "dark"
                 ? "bg-[#0F1214] border border-gray-600"
-                : "bg-gray-100"
+                : "border"
             }`}
           >
-            <div className="rounded-full  bg-gray-200">
-              <MdMoneyOff size={50} className="text-red-500" />
-            </div>
+            <MdMoneyOff size={50} className="text-red-500" />
 
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gider</p>
@@ -49,14 +45,10 @@ export default function Stats() {
         </div>
         <div
           className={`rounded-sm shadow w-full h-full  px-4 py-4 flex flex-row items-center gap-4 ${
-            theme === "dark"
-              ? "bg-[#0F1214] border border-gray-600"
-              : "bg-gray-100"
+            theme === "dark" ? "bg-[#0F1214] border border-gray-600" : "border"
           }`}
         >
-          <div className="rounded-full  bg-gray-200">
-            <GiMoneyStack size={50} className="text-green-500" />
-          </div>
+          <GiMoneyStack size={50} className="text-green-500" />
 
           <div className="flex flex-col">
             <p className="text-gray-500 font-normal text-xl">Toplam Bakiye</p>
