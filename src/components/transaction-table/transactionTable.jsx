@@ -13,11 +13,11 @@ import { useTransaction } from "@/context/income/transactionContext";
 export default function TransactionTable() {
   const { transactionData } = useTransaction();
 
-  const StyledTableCell = styled(TableCell)(({ theme, isBold }) => ({
+  const StyledTableCell = styled(TableCell)(({ theme, isbold }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
-      fontWeight: isBold ? "600" : "normal",
+      fontWeight: isbold ? "600" : "normal",
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -66,26 +66,29 @@ export default function TransactionTable() {
 
   return (
     <>
-      <div className="container mx-auto mt-4 ">
+      <div className="container mx-auto mt-4 max-xl:p-2">
         <TableContainer
           component={Paper}
-          sx={{ width: "50%", minWidth: 700, borderRadius: "0.5rem" }}
-          className="rounded-full"
+          sx={{
+            width: { xs: "100%", sm: "100%", md: "50%" },
+            borderRadius: "0.5rem",
+          }}
+          className="rounded-full max-md:w-full"
         >
-          <Table aria-label="customized table">
+          <Table aria-label="customized table" className="max-md:w-full">
             <TableHead>
               <TableRow>
-                <StyledTableCell isBold>Kategori</StyledTableCell>
-                <StyledTableCell isBold align="left">
+                <StyledTableCell isbold>Kategori</StyledTableCell>
+                <StyledTableCell isbold align="left">
                   Açıklama
                 </StyledTableCell>
-                <StyledTableCell isBold align="center">
+                <StyledTableCell isbold align="center">
                   Tutar
                 </StyledTableCell>
-                <StyledTableCell isBold align="center">
+                <StyledTableCell isbold align="center">
                   İşlem Türü
                 </StyledTableCell>
-                <StyledTableCell isBold align="center">
+                <StyledTableCell isbold align="center">
                   Tarih
                 </StyledTableCell>
 

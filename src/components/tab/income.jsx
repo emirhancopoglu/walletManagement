@@ -110,8 +110,6 @@ export default function Income() {
             onChange={(e) => setAmount(e.target.value)}
           />
           <TextField
-            id="outlined-basic"
-            variant="outlined"
             size="small"
             type="date"
             required
@@ -132,6 +130,7 @@ export default function Income() {
         draggable
         pauseOnHover
         theme="light"
+        className={" max-md:px-4 max-md:py-4"}
       />
     </>
   );

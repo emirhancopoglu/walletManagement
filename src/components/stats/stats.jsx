@@ -13,8 +13,8 @@ export default function Stats() {
 
   return (
     <>
-      <div className="flex flex-col w-full gap-4">
-        <div className="flex flex-row w-full gap-2">
+      <div className="flex flex-col w-full gap-4 max-md:gap-2">
+        <div className="flex flex-row w-full gap-2 max-md:flex-col">
           <div className="rounded-sm shadow w-full h-max bg-gray-100 px-4 py-4 flex flex-row items-center gap-4">
             <div className="rounded-full  bg-gray-200">
               <MdAttachMoney size={50} className="text-green-500 " />

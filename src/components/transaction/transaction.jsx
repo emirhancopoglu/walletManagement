@@ -24,8 +24,8 @@ export default function Transaction() {
   };
 
   return (
-    <div className="container mx-auto mt-4">
-      <div className="flex flex-row gap-4">
+    <div className="container mx-auto mt-4 max-xl:px-2 ">
+      <div className="flex flex-row gap-4 max-md:flex-col">
         <Box className="w-full">
           <Tabs
             value={value}
@@ -38,7 +38,7 @@ export default function Transaction() {
             <Tab icon={<MoneyOffIcon />} />
           </Tabs>
 
-          <Box className="p-8 bg-gray-100 rounded-sm mt-4 shadow">
+          <Box className="p-8 bg-gray-100 rounded-sm mt-4 shadow max-md:p-4">
             {value === 0 && <Income />}
             {value === 1 && <Expense />}
           </Box>
