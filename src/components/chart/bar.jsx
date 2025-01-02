@@ -11,6 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useThemeContext } from "@/context/theme/themeContext";
 
 ChartJS.register(
   CategoryScale,
@@ -27,6 +28,8 @@ export default function Chart() {
     labels: [],
     datasets: [],
   });
+
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     const incomeData = transactionData.filter(
@@ -75,7 +78,13 @@ export default function Chart() {
   }, [transactionData]);
 
   return (
-    <div className="flex border w-1/2 max-md:w-full h-[30rem] shadow rounded-sm px-4 py-4 justify-center bg-gray-100">
+    <div
+      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm px-4 py-4 justify-center  ${
+        theme === "dark"
+          ? "border border-gray-600 bg-[#0F1214]"
+          : "border bg-gray-50"
+      }`}
+    >
       {chartData && transactionData.length > 0 ? (
         <>
           <Bar
