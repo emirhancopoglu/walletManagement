@@ -75,20 +75,35 @@ export default function Chart() {
   }, [transactionData]);
 
   return (
-    <div className="container mx-auto w-1/2 max-md:w-full shadow rounded-sm px-4 py-4">
-      <Bar
-        data={chartData}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            title: {
-              display: true,
-              text: "Kategoriye Göre Gelir ve Gider Grafiği",
-            },
-          },
-        }}
-      />
+    <div className="flex border w-1/2 max-md:w-full h-[30rem] shadow rounded-sm px-4 py-4 justify-center bg-gray-100">
+      {chartData && transactionData.length > 0 ? (
+        <>
+          <Bar
+            data={chartData}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                title: {
+                  display: true,
+                  text: "Kategoriye Göre Gelir ve Gider Grafiği",
+                },
+              },
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <div className="flex flex-col px-4 py-4 justify-center items-">
+            <div className="font-semibold text-center">
+              Herhangi Bir Veri Bulunamadı.
+            </div>
+            <div className="text-sm">
+              Grafiği görüntülemek için yeni işlem oluşturun.
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
-import Chart from "@/components/chart/chart";
+import Chart from "@/components/chart/bar";
 import {
   Button,
   Dialog,
@@ -20,6 +20,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTransaction } from "@/context/transaction/transactionContext";
+import PieChart from "@/components/chart/pie";
 
 export default function TransactionTable() {
   const { transactionData, formatCurrency, deleteTransaction } =
@@ -95,11 +96,11 @@ export default function TransactionTable() {
 
   return (
     <>
-      <div className="container mx-auto mt-4 max-xl:p-2 flex flex-row  gap-4 max-md:flex-col ">
+      <div className="container mx-auto mt-4 max-xl:p-2 flex flex-col w-full  max-md:flex-col mb-4">
         <TableContainer
           component={Paper}
           sx={{
-            width: { xs: "100%", sm: "100%", md: "50%" },
+            width: { xs: "100%", sm: "100%", md: "100%" },
           }}
           className="rounded-full max-md:w-full"
         >
@@ -162,7 +163,7 @@ export default function TransactionTable() {
                 </>
               ) : (
                 <StyledTableRow>
-                  <StyledTableCell colSpan={5} align="center">
+                  <StyledTableCell colSpan={6} align="center">
                     Veri bulunamadı.
                   </StyledTableCell>
                 </StyledTableRow>
@@ -170,9 +171,11 @@ export default function TransactionTable() {
             </TableBody>
           </Table>
         </TableContainer>
-        <Chart />
       </div>
-
+      <div className="flex flex-row w-full container mx-auto gap-4 mb-4 max-md:flex-col max-xl:p-2">
+        <Chart />
+        <PieChart />
+      </div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Silme İşlemi</DialogTitle>
         <DialogContent>
