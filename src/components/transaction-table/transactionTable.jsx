@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
@@ -8,11 +8,24 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
-import { useTransaction } from "@/context/transaction/transactionContext";
 import Chart from "@/components/chart/chart";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useTransaction } from "@/context/transaction/transactionContext";
 
 export default function TransactionTable() {
-  const { transactionData, formatCurrency } = useTransaction();
+  const { transactionData, formatCurrency, deleteTransaction } =
+    useTransaction();
+  const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -64,6 +77,22 @@ export default function TransactionTable() {
     createData("Gingerbread", 356, 16.0, 49, 3.9),
   ];
 
+  const handleClickOpen = (index) => {
+    setSelectedIndex(index);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleDelete = () => {
+    if (selectedIndex !== null) {
+      deleteTransaction(selectedIndex);
+      setOpen(false);
+    }
+  };
+
   return (
     <>
       <div className="container mx-auto mt-4 max-xl:p-2 flex flex-row  gap-4 max-md:flex-col ">
@@ -83,7 +112,7 @@ export default function TransactionTable() {
                 <StyledTableCell align="center">İşlem Türü</StyledTableCell>
                 <StyledTableCell align="center">Tarih</StyledTableCell>
 
-                {/* <StyledTableCell align="center">Sil</StyledTableCell> */}
+                <StyledTableCell align="center">Sil</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -119,9 +148,15 @@ export default function TransactionTable() {
                       <StyledTableCell align="center">
                         {item.date}
                       </StyledTableCell>
-                      {/* <StyledTableCell align="center">
-                    {item.transactionRemove}
-                  </StyledTableCell> */}
+                      <StyledTableCell align="center">
+                        <IconButton
+                          onClick={() => handleClickOpen(index)}
+                          aria-label="delete"
+                          color="info"
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </StyledTableCell>
                     </StyledTableRow>
                   ))}
                 </>
@@ -137,6 +172,28 @@ export default function TransactionTable() {
         </TableContainer>
         <Chart />
       </div>
+
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Silme İşlemi</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Bu işlemi silmek istediğinizden emin misiniz?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="info" variant="outlined">
+            İptal
+          </Button>
+          <Button
+            onClick={handleDelete}
+            color="error"
+            autoFocus
+            variant="outlined"
+          >
+            Sil
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

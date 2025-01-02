@@ -51,11 +51,22 @@ export function TransactionProvider({ children }) {
     );
   };
 
+  const deleteTransaction = (index) => {
+    const updatedTransactions = [...transactionData];
+    updatedTransactions.splice(index, 1);
+    setTransactionData(updatedTransactions);
+    localStorage.setItem(
+      "transactionData",
+      JSON.stringify(updatedTransactions)
+    );
+  };
+
   return (
     <TransactionContext.Provider
       value={{
         transactionData,
         addTransaction,
+        deleteTransaction,
         category,
         setCategory,
         description,
