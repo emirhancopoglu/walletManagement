@@ -61,7 +61,7 @@ export default function PieChart() {
                 },
                 title: {
                   display: true,
-                  text: "Gelir ve Gider Dağılımı",
+                  text: "Gelir ve Gider Oranı",
                 },
               },
             }}
