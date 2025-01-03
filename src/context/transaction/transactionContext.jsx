@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const TransactionContext = createContext();
 
@@ -32,8 +33,8 @@ export function TransactionProvider({ children }) {
     return (
       new Intl.NumberFormat("tr-TR", {
         style: "decimal",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
       }).format(amount) + "₺"
     );
   };
@@ -49,6 +50,8 @@ export function TransactionProvider({ children }) {
       "transactionData",
       JSON.stringify(updatedTransactionData)
     );
+
+    checkSpendingPercentage(updatedTransactionData);
   };
 
   const deleteTransaction = (index) => {
@@ -59,6 +62,29 @@ export function TransactionProvider({ children }) {
       "transactionData",
       JSON.stringify(updatedTransactions)
     );
+    checkSpendingPercentage(updatedTransactions);
+  };
+
+  const checkSpendingPercentage = (data) => {
+    const totalIncome = data
+      .filter((transaction) => transaction.type === "Gelir")
+      .reduce(
+        (acc, transaction) => acc + parseFloat(transaction.amount || 0),
+        0
+      );
+
+    const totalExpense = data
+      .filter((transaction) => transaction.type === "Gider")
+      .reduce(
+        (acc, transaction) => acc + parseFloat(transaction.amount || 0),
+        0
+      );
+
+    const spentPercentage = (totalExpense / totalIncome) * 100;
+
+    if (spentPercentage >= 80) {
+      toast.info(`Gelirinizin %${Math.floor(spentPercentage)}'ini harcadınız.`);
+    }
   };
 
   return (

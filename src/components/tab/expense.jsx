@@ -62,7 +62,8 @@ export default function Expense() {
       <div className="flex flex-col">
         <div className="flex flex-row justify-between pb-4 items-center">
           <p className="font-semibold text-sm">
-            Yeni Bir Gider İşlemi Oluşturun
+            Yeni Bir <span className="text-red-500 font-bold">Gider</span>{" "}
+            İşlemi Oluşturun
           </p>
           <Button
             color="info"
