@@ -113,7 +113,7 @@ export default function TransactionTable() {
                 <StyledTableCell align="center">İşlem Türü</StyledTableCell>
                 <StyledTableCell align="center">Tarih</StyledTableCell>
 
-                <StyledTableCell align="center">Sil</StyledTableCell>
+                <StyledTableCell align="center">İşlemi Sil</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

@@ -6,6 +6,7 @@ import Header from "@/components/header/header";
 import { ThemeSwitchProvider } from "@/context/theme/themeContext";
 import "@/app/globals.css";
 import { ToastContainer } from "react-toastify";
+import Footer from "@/components/footer/footer";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`${MontserratFont.variable} antialiased`}>
         <AppRouterCacheProvider>
           <ThemeProvider>
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
                 <Header />
                 <ToastContainer />
                 {children}
+                <Footer />
               </TransactionProvider>
             </ThemeSwitchProvider>
           </ThemeProvider>
