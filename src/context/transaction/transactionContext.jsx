@@ -87,12 +87,12 @@ export function TransactionProvider({ children }) {
       toast.info(
         `Gelirinizin %${Math.floor(spentPercentage)}'ini harcadınız.`,
         {
-          position: "top-center", // Bildirimin konumu
-          autoClose: 4000, // 5000 ms = 5 saniye sonra otomatik kapanır
-          hideProgressBar: false, // İlerleme çubuğunu göster
-          closeOnClick: true, // Tıklama ile kapat
-          pauseOnHover: true, // Üzerine gelindiğinde duraklat
-          draggable: true, // Sürüklenebilirlik
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
           theme: theme === "dark" ? "dark" : "light",
         }
       );
