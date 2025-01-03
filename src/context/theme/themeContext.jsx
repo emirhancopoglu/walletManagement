@@ -6,8 +6,8 @@ import { createTheme, ThemeProvider } from "@mui/material";
 const ThemeContext = createContext();
 
 export const ThemeSwitchProvider = ({ children }) => {
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);

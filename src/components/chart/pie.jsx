@@ -9,12 +9,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PieChart() {
   const { transactionData } = useTransaction();
+  const { theme } = useThemeContext();
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [],
   });
-
-  const { theme } = useThemeContext();
 
   useEffect(() => {
     const incomeTotal = transactionData
@@ -30,11 +29,8 @@ export default function PieChart() {
       datasets: [
         {
           data: [incomeTotal, expenseTotal],
-          backgroundColor: [
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(255, 99, 132, 0.2)",
-          ],
-          borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)"],
+          backgroundColor: ["#BBF7D0", "#FECACA"],
+          borderColor: ["#BBF7D0", "#FECACA"],
           borderWidth: 1,
         },
       ],

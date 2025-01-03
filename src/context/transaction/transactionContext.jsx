@@ -1,24 +1,18 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useThemeContext } from "../theme/themeContext";
+import { useThemeContext } from "@/context/theme/themeContext";
 
 const TransactionContext = createContext();
 
 export function TransactionProvider({ children }) {
+  const { theme } = useThemeContext();
   const [transactionData, setTransactionData] = useState([]);
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
   const [type, setType] = useState("Gelir");
-  const { theme } = useThemeContext();
-  useEffect(() => {
-    const storedData = localStorage.getItem("transactionData");
-    if (storedData) {
-      setTransactionData(JSON.parse(storedData));
-    }
-  }, []);
 
   const incomeTotal = transactionData
     .filter((transaction) => transaction.type === "Gelir")
@@ -98,6 +92,13 @@ export function TransactionProvider({ children }) {
       );
     }
   };
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("transactionData");
+    if (storedData) {
+      setTransactionData(JSON.parse(storedData));
+    }
+  }, []);
 
   return (
     <TransactionContext.Provider

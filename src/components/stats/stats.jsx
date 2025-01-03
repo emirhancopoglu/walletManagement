@@ -4,10 +4,16 @@ import { MdAttachMoney } from "react-icons/md";
 import { MdMoneyOff } from "react-icons/md";
 import { useTransaction } from "@/context/transaction/transactionContext";
 import { useThemeContext } from "@/context/theme/themeContext";
+import AnimatedNumber from "@/utils/number-counter/numberAnimation";
 
 export default function Stats() {
-  const { formattedIncomeTotal, formattedExpenseTotal, formattedBalance } =
-    useTransaction();
+  const {
+    formattedIncomeTotal,
+    formattedExpenseTotal,
+    formattedBalance,
+    incomeTotal,
+    amount,
+  } = useTransaction();
   const { theme } = useThemeContext();
 
   return (
@@ -26,7 +32,7 @@ export default function Stats() {
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gelir</p>
               <div className="font-semibold max-lg:text-sm">
-                {formattedIncomeTotal}{" "}
+                <AnimatedNumber value={formattedIncomeTotal} />
               </div>
             </div>
           </div>
@@ -42,7 +48,7 @@ export default function Stats() {
             <div className="flex flex-col">
               <p className="text-gray-500 font-normal text-xl">Gider</p>
               <div className="font-semibold max-lg:text-sm">
-                {formattedExpenseTotal}
+                <AnimatedNumber value={formattedExpenseTotal} />
               </div>
             </div>
           </div>
@@ -57,7 +63,7 @@ export default function Stats() {
           <div className="flex flex-col">
             <p className="text-gray-500 font-normal text-xl">Toplam Bakiye</p>
             <div className="font-semibold max-lg:text-sm">
-              {formattedBalance}
+              <AnimatedNumber value={formattedBalance} />
             </div>
           </div>
         </div>

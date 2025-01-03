@@ -24,12 +24,11 @@ ChartJS.register(
 
 export default function Chart() {
   const { transactionData } = useTransaction();
+  const { theme } = useThemeContext();
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [],
   });
-
-  const { theme } = useThemeContext();
 
   useEffect(() => {
     const incomeData = transactionData.filter(
@@ -62,15 +61,15 @@ export default function Chart() {
         {
           label: "Gelir",
           data: incomeValues,
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
+          backgroundColor: "#BBF7D0",
+          borderColor: "#BBF7D0",
           borderWidth: 1,
         },
         {
           label: "Gider",
           data: expenseValues,
-          backgroundColor: "rgba(255, 99, 132, 0.2)",
-          borderColor: "rgba(255, 99, 132, 1)",
+          backgroundColor: "#FECACA",
+          borderColor: "#FECACA",
           borderWidth: 1,
         },
       ],
