@@ -5,6 +5,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/transaction/transactionContext";
 import { formatDate } from "@/utils/date/formatDate";
+import { useThemeContext } from "@/context/theme/themeContext";
 
 export default function Income() {
   const {
@@ -19,6 +20,7 @@ export default function Income() {
     setDate,
     type,
   } = useTransaction();
+  const { theme } = useThemeContext();
 
   const categories = [
     { value: "Maaş", label: "Maaş" },
@@ -39,7 +41,7 @@ export default function Income() {
         pauseOnFocusLoss: false,
         draggable: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: theme === "dark" ? "dark" : "light",
         transition: Slide,
       });
       return null;

@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useThemeContext } from "../theme/themeContext";
 
 const TransactionContext = createContext();
 
@@ -11,7 +12,7 @@ export function TransactionProvider({ children }) {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
   const [type, setType] = useState("Gelir");
-
+  const { theme } = useThemeContext();
   useEffect(() => {
     const storedData = localStorage.getItem("transactionData");
     if (storedData) {
@@ -83,7 +84,18 @@ export function TransactionProvider({ children }) {
     const spentPercentage = (totalExpense / totalIncome) * 100;
 
     if (spentPercentage >= 80) {
-      toast.info(`Gelirinizin %${Math.floor(spentPercentage)}'ini harcadınız.`);
+      toast.info(
+        `Gelirinizin %${Math.floor(spentPercentage)}'ini harcadınız.`,
+        {
+          position: "top-center", // Bildirimin konumu
+          autoClose: 4000, // 5000 ms = 5 saniye sonra otomatik kapanır
+          hideProgressBar: false, // İlerleme çubuğunu göster
+          closeOnClick: true, // Tıklama ile kapat
+          pauseOnHover: true, // Üzerine gelindiğinde duraklat
+          draggable: true, // Sürüklenebilirlik
+          theme: theme === "dark" ? "dark" : "light",
+        }
+      );
     }
   };
 

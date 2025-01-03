@@ -4,6 +4,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/transaction/transactionContext";
 import { formatDate } from "@/utils/date/formatDate";
+import { useThemeContext } from "@/context/theme/themeContext";
 
 export default function Expense() {
   const {
@@ -18,6 +19,7 @@ export default function Expense() {
     setDate,
     type,
   } = useTransaction();
+  const { theme } = useThemeContext();
 
   const categories = [
     { value: "Yemek", label: "Yemek" },
@@ -37,7 +39,7 @@ export default function Expense() {
         pauseOnFocusLoss: false,
         draggable: true,
         pauseOnHover: true,
-        theme: "light",
+        theme: theme === "dark" ? "dark" : "light",
         transition: Slide,
       });
       return null;
@@ -140,7 +142,7 @@ export default function Expense() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        limit={2}
       />
     </>
   );
