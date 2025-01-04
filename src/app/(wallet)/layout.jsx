@@ -1,12 +1,12 @@
-import { ThemeProvider } from "next-themes";
-import { Montserrat } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { TransactionProvider } from "@/context/transaction/transactionContext";
 import Header from "@/components/header/header";
-import { ThemeSwitchProvider } from "@/context/theme/themeContext";
-import "@/app/globals.css";
-import { ToastContainer } from "react-toastify";
 import Footer from "@/components/footer/footer";
+import { ThemeProvider } from "next-themes";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeSwitchProvider } from "@/context/theme/themeContext";
+import { TransactionProvider } from "@/context/transaction/transactionContext";
+import { ToastContainer } from "react-toastify";
+import "@/app/globals.css";
+import { Montserrat } from "next/font/google";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
