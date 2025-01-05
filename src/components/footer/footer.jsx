@@ -9,20 +9,20 @@ export default function Footer() {
   return (
     <>
       <footer
-        className={`flex flex-row justify-center items-center mt-4  ${
+        className={`flex flex-row justify-center container mx-auto items-center ${
           theme === "dark" ? "border-gray-600 border-t" : "border-t"
         }`}
       >
-        <div className="flex flex-row mt-2">
+        <div className="flex flex-row mt-1">
           <a href="https://www.linkedin.com/in/emirhancopoglu/" target="_blank">
             <FaLinkedin
-              size={50}
+              size={30}
               color={`${theme === "dark" ? "#F9F1F0" : "black"}`}
             />
           </a>
           <a href="https://github.com/emirhancopoglu" target="_blank">
             <FaGithubSquare
-              size={50}
+              size={30}
               color={`${theme === "dark" ? "#F9F1F0" : "black"}`}
             />
           </a>

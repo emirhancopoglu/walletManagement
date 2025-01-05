@@ -13,7 +13,6 @@ export default function AnimatedNumber({ value }) {
     stiffness: 75,
     damping: 15,
   });
-  console.log("1", formatted);
 
   let display = useTransform(
     spring,

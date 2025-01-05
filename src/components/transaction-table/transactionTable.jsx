@@ -142,7 +142,7 @@ export default function TransactionTable() {
           </Table>
         </TableContainer>
       </div>
-      <div className="flex flex-row w-full container mx-auto gap-4 mb-4 max-md:flex-col max-xl:p-2">
+      <div className="flex flex-row w-full container mx-auto gap-4 xl:mb-4 max-md:flex-col max-xl:p-2">
         <Chart />
         <PieChart />
       </div>

@@ -7,13 +7,8 @@ import { useThemeContext } from "@/context/theme/themeContext";
 import AnimatedNumber from "@/utils/number-counter/numberAnimation";
 
 export default function Stats() {
-  const {
-    formattedIncomeTotal,
-    formattedExpenseTotal,
-    formattedBalance,
-    incomeTotal,
-    amount,
-  } = useTransaction();
+  const { formattedIncomeTotal, formattedExpenseTotal, formattedBalance } =
+    useTransaction();
   const { theme } = useThemeContext();
 
   return (
