@@ -147,19 +147,25 @@ export default function TransactionTable() {
         <PieChart />
       </div>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Silme İşlemi</DialogTitle>
+        <DialogTitle>İşlemi Sil</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Bu işlemi silmek istediğinizden emin misiniz?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="info" variant="outlined">
+          <Button
+            onClick={handleClose}
+            size="small"
+            color="info"
+            variant="outlined"
+          >
             İptal
           </Button>
           <Button
             onClick={handleDelete}
             color="error"
+            size="small"
             autoFocus
             variant="outlined"
           >

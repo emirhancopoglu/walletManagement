@@ -10,6 +10,9 @@ const MontserratFont = Montserrat({
 export const metadata = {
   title: "Wallet Management",
   description: "Wallet Management",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
