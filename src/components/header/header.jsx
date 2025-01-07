@@ -9,7 +9,8 @@ export default function Header() {
           <div className="text-xl">
             <span className="text-green-600 font-normal">WalletManagement</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-4">
+            <a href="/settings"> Ayarlar</a>
             <ThemeChanger />
           </div>
         </header>

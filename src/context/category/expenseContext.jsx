@@ -12,9 +12,7 @@ export function ExpenseCategoryProvider({ children }) {
   });
 
   useEffect(() => {
-    if (categories.length > 0) {
-      localStorage.setItem("expenseCategories", JSON.stringify(categories));
-    }
+    localStorage.setItem("expenseCategories", JSON.stringify(categories));
   }, [categories]);
 
   const addCategory = (category) => {

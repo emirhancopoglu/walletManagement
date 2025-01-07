@@ -12,9 +12,7 @@ export function IncomeCategoryProvider({ children }) {
   });
 
   useEffect(() => {
-    if (categories.length > 0) {
-      localStorage.setItem("incomeCategories", JSON.stringify(categories));
-    }
+    localStorage.setItem("incomeCategories", JSON.stringify(categories));
   }, [categories]);
 
   const addCategory = (category) => {

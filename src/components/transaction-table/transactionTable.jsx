@@ -8,7 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
-import Chart from "@/components/chart/bar";
 import {
   Button,
   Dialog,
@@ -20,6 +19,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTransaction } from "@/context/transaction/transactionContext";
+import Chart from "@/components/chart/bar";
 import PieChart from "@/components/chart/pie";
 
 export default function TransactionTable() {
@@ -124,6 +124,7 @@ export default function TransactionTable() {
                           onClick={() => handleClickOpen(index)}
                           aria-label="delete"
                           color="info"
+                          size="small"
                         >
                           <DeleteIcon />
                         </IconButton>
