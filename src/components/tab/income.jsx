@@ -1,11 +1,21 @@
 "use client";
-import React from "react";
-import { Button, MenuItem, TextField } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  MenuItem,
+  TextField,
+  Typography,
+} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/transaction/transactionContext";
 import { formatDate } from "@/utils/date/formatDate";
 import { useThemeContext } from "@/context/theme/themeContext";
+import { useCategory } from "@/context/category/categoryContext";
 
 export default function Income() {
   const {
@@ -20,14 +30,13 @@ export default function Income() {
     setDate,
     type,
   } = useTransaction();
+
   const { theme } = useThemeContext();
 
-  const categories = [
-    { value: "Maaş", label: "Maaş" },
-    { value: "Kripto", label: "Kripto" },
-    { value: "Yan Gelir", label: "Yan Gelir" },
-    { value: "Diğer", label: "Diğer" },
-  ];
+  const { categories, addCategory, removeCategory } = useCategory();
+
+  const [openDialog, setOpenDialog] = useState(false); // Modal kontrolü
+  const [newCategory, setNewCategory] = useState("");
 
   const handleSave = () => {
     if (!category || !amount || !date) {
@@ -55,6 +64,30 @@ export default function Income() {
     setDate("");
   };
 
+  const handleAddCategory = () => {
+    if (newCategory.trim()) {
+      // Yeni kategori ekleme
+      addCategory({ label: newCategory, value: newCategory.toLowerCase() });
+      setCategory(newCategory.toLowerCase()); // Yeni kategoriyi formda seçili yapmak için
+      setNewCategory(""); // Kategori eklendikten sonra inputu temizle
+      setOpenDialog(false); // Dialog'u kapat
+    } else {
+      toast.warn("Kategori adı boş olamaz.", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        newestOnTop: true,
+        closeOnClick: true,
+        rtl: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        pauseOnHover: true,
+        theme: theme === "dark" ? "dark" : "light",
+        transition: Slide,
+      });
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col">
@@ -70,7 +103,9 @@ export default function Income() {
             endIcon={<SaveIcon />}
             onClick={handleSave}
           >
-            Kaydet
+            <Typography variant="button" style={{ fontWeight: "bold" }}>
+              Kaydet
+            </Typography>
           </Button>
         </div>
 
@@ -83,7 +118,7 @@ export default function Income() {
             variant="outlined"
             size="small"
             className="w-full"
-            value={category}
+            value={category || ""}
             onChange={(e) => setCategory(e.target.value)}
           >
             {categories.map((option) => (
@@ -91,6 +126,18 @@ export default function Income() {
                 {option.label}
               </MenuItem>
             ))}
+
+            <Button
+              onClick={() => setOpenDialog(true)}
+              size="small"
+              variant="text"
+              className="w-full"
+              color="success"
+            >
+              <Typography variant="button" style={{ fontWeight: "bold" }}>
+                Kategori Ekle
+              </Typography>
+            </Button>
           </TextField>
 
           <TextField
@@ -138,6 +185,46 @@ export default function Income() {
         theme="light"
         className={" max-md:px-4 max-md:py-4"}
       />
+      <Dialog
+        aria-hidden={openDialog ? "false" : "true"}
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+      >
+        <DialogTitle>Gelir Kategorisi Ekle</DialogTitle>
+        <DialogContent>
+          <TextField
+            size="small"
+            autoFocus
+            margin="dense"
+            label="Kategori"
+            fullWidth
+            value={newCategory}
+            onChange={(e) => setNewCategory(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            size="small"
+            color="error"
+            variant="outlined"
+            onClick={() => setOpenDialog(false)}
+          >
+            <Typography variant="button" style={{ fontWeight: "bold" }}>
+              İptal
+            </Typography>
+          </Button>
+          <Button
+            size="small"
+            variant="outlined"
+            onClick={handleAddCategory}
+            color="primary"
+          >
+            <Typography variant="button" style={{ fontWeight: "bold" }}>
+              Ekle
+            </Typography>
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

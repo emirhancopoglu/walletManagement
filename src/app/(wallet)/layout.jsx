@@ -7,6 +7,7 @@ import { TransactionProvider } from "@/context/transaction/transactionContext";
 import { ToastContainer } from "react-toastify";
 import "@/app/globals.css";
 import { Montserrat } from "next/font/google";
+import { CategoryProvider } from "@/context/category/categoryContext";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
@@ -27,10 +28,12 @@ export default function RootLayout({ children }) {
           <ThemeProvider>
             <ThemeSwitchProvider>
               <TransactionProvider>
-                <Header />
-                <ToastContainer />
-                {children}
-                <Footer />
+                <CategoryProvider>
+                  <Header />
+                  <ToastContainer />
+                  {children}
+                  <Footer />
+                </CategoryProvider>
               </TransactionProvider>
             </ThemeSwitchProvider>
           </ThemeProvider>

@@ -16,13 +16,13 @@ export default function Footer() {
         <div className="flex flex-row mt-1">
           <a href="https://www.linkedin.com/in/emirhancopoglu/" target="_blank">
             <FaLinkedin
-              size={30}
+              size={40}
               color={`${theme === "dark" ? "#F9F1F0" : "black"}`}
             />
           </a>
           <a href="https://github.com/emirhancopoglu" target="_blank">
             <FaGithubSquare
-              size={30}
+              size={40}
               color={`${theme === "dark" ? "#F9F1F0" : "black"}`}
             />
           </a>
