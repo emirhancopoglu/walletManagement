@@ -15,7 +15,7 @@ import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/transaction/transactionContext";
 import { formatDate } from "@/utils/date/formatDate";
 import { useThemeContext } from "@/context/theme/themeContext";
-import { useCategory } from "@/context/category/categoryContext";
+import { useIncomeCategory } from "@/context/category/incomeContext";
 
 export default function Income() {
   const {
@@ -33,9 +33,9 @@ export default function Income() {
 
   const { theme } = useThemeContext();
 
-  const { categories, addCategory, removeCategory } = useCategory();
+  const { categories, addCategory } = useIncomeCategory();
 
-  const [openDialog, setOpenDialog] = useState(false); // Modal kontrolü
+  const [openDialog, setOpenDialog] = useState(false);
   const [newCategory, setNewCategory] = useState("");
 
   const handleSave = () => {
@@ -66,11 +66,10 @@ export default function Income() {
 
   const handleAddCategory = () => {
     if (newCategory.trim()) {
-      // Yeni kategori ekleme
       addCategory({ label: newCategory, value: newCategory.toLowerCase() });
-      setCategory(newCategory.toLowerCase()); // Yeni kategoriyi formda seçili yapmak için
-      setNewCategory(""); // Kategori eklendikten sonra inputu temizle
-      setOpenDialog(false); // Dialog'u kapat
+      setCategory(newCategory.toLowerCase());
+      setNewCategory("");
+      setOpenDialog(false);
     } else {
       toast.warn("Kategori adı boş olamaz.", {
         position: "top-center",
