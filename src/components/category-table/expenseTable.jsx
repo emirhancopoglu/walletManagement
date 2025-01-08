@@ -99,7 +99,13 @@ export default function ExpenseTable() {
               </>
             ) : (
               <StyledTableRow>
-                <StyledTableCell colSpan={2} align="center">
+                <StyledTableCell
+                  sx={{
+                    height: "maxContent",
+                  }}
+                  colSpan={2}
+                  align="center"
+                >
                   Veri bulunamadı.
                 </StyledTableCell>
               </StyledTableRow>

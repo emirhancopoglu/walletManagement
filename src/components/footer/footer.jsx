@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <>
       <footer
-        className={`flex flex-row justify-center container mx-auto items-center border-t  ${
+        className={`flex flex-row justify-center container mx-auto items-center border-t ${
           theme === "dark" ? "border-gray-600 border-t" : "border-t"
         }`}
       >

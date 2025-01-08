@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useTransaction } from "@/context/transaction/transactionContext";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import { useThemeContext } from "@/context/theme/themeContext";
 
 ChartJS.register(
@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-export default function Chart() {
+export default function BarChart() {
   const { transactionData } = useTransaction();
   const { theme } = useThemeContext();
   const [chartData, setChartData] = useState({
@@ -78,7 +78,7 @@ export default function Chart() {
 
   return (
     <div
-      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm px-4 py-4 justify-center  ${
+      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm justify-center  ${
         theme === "dark"
           ? "border border-gray-600 bg-[#0F1214]"
           : "border bg-gray-50"
@@ -95,6 +95,12 @@ export default function Chart() {
                 title: {
                   display: true,
                   text: "Kategoriye Göre Gelir ve Gider Grafiği",
+                },
+              },
+              layout: {
+                padding: {
+                  left: 16,
+                  right: 16,
                 },
               },
             }}

@@ -19,8 +19,6 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTransaction } from "@/context/transaction/transactionContext";
-import Chart from "@/components/chart/bar";
-import PieChart from "@/components/chart/pie";
 
 export default function TransactionTable() {
   const { transactionData, formatCurrency, deleteTransaction } =
@@ -143,10 +141,7 @@ export default function TransactionTable() {
           </Table>
         </TableContainer>
       </div>
-      <div className="flex flex-row w-full container mx-auto gap-4 xl:mb-4 max-md:flex-col max-xl:p-2">
-        <Chart />
-        <PieChart />
-      </div>
+
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>İşlemi Sil</DialogTitle>
         <DialogContent>

@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useTransaction } from "@/context/transaction/transactionContext";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { useTransaction } from "@/context/transaction/transactionContext";
 import { useThemeContext } from "@/context/theme/themeContext";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -39,7 +39,7 @@ export default function PieChart() {
 
   return (
     <div
-      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm px-4 py-4 justify-center  ${
+      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm justify-center  ${
         theme === "dark"
           ? "border border-gray-600 bg-[#0F1214]"
           : "border bg-gray-50"
@@ -58,6 +58,12 @@ export default function PieChart() {
                 title: {
                   display: true,
                   text: "Gelir ve Gider Oranı",
+                },
+              },
+              layout: {
+                padding: {
+                  left: 16,
+                  right: 16,
                 },
               },
             }}

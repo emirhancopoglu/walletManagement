@@ -5,10 +5,10 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeSwitchProvider } from "@/context/theme/themeContext";
 import { TransactionProvider } from "@/context/transaction/transactionContext";
 import { ToastContainer } from "react-toastify";
-import "@/app/globals.css";
 import { Montserrat } from "next/font/google";
 import { IncomeCategoryProvider } from "@/context/category/incomeContext";
 import { ExpenseCategoryProvider } from "@/context/category/expenseContext";
+import "@/app/globals.css";
 
 const MontserratFont = Montserrat({
   subsets: ["latin"],
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
                     <Header />
                     <ToastContainer />
                     {children}
-                    <Footer />
+                    {/* <Footer /> */}
                   </ExpenseCategoryProvider>
                 </IncomeCategoryProvider>
               </TransactionProvider>
