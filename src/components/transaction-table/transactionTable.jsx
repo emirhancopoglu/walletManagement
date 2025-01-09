@@ -16,6 +16,7 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
+  Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTransaction } from "@/context/transaction/transactionContext";
@@ -114,6 +115,7 @@ export default function TransactionTable() {
                           </>
                         )}
                       </StyledTableCell>
+
                       <StyledTableCell align="center">
                         {item.date}
                       </StyledTableCell>
@@ -151,12 +153,18 @@ export default function TransactionTable() {
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={handleClose}
             size="small"
             color="info"
             variant="outlined"
+            onClick={handleClose}
           >
-            İptal
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
+              İptal
+            </Typography>
           </Button>
           <Button
             onClick={handleDelete}
@@ -165,7 +173,13 @@ export default function TransactionTable() {
             autoFocus
             variant="outlined"
           >
-            Sil
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
+              Sil
+            </Typography>
           </Button>
         </DialogActions>
       </Dialog>

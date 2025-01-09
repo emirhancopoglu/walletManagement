@@ -13,6 +13,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -125,7 +126,13 @@ export default function IncomeTable() {
             color="info"
             variant="outlined"
           >
-            İptal
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
+              İptal
+            </Typography>
           </Button>
           <Button
             onClick={handleDelete}
@@ -134,7 +141,13 @@ export default function IncomeTable() {
             autoFocus
             variant="outlined"
           >
-            Sil
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
+              Sil
+            </Typography>
           </Button>
         </DialogActions>
       </Dialog>

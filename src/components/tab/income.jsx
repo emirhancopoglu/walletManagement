@@ -66,8 +66,8 @@ export default function Income() {
 
   const handleAddCategory = () => {
     if (newCategory.trim()) {
-      addCategory({ label: newCategory, value: newCategory.toLowerCase() });
-      setCategory(newCategory.toLowerCase());
+      addCategory({ label: newCategory, value: newCategory });
+      setCategory(newCategory);
       setNewCategory("");
       setOpenDialog(false);
     } else {
@@ -102,7 +102,11 @@ export default function Income() {
             endIcon={<SaveIcon />}
             onClick={handleSave}
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               Kaydet
             </Typography>
           </Button>
@@ -201,26 +205,39 @@ export default function Income() {
             fullWidth
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleAddCategory();
+              }
+            }}
           />
         </DialogContent>
         <DialogActions>
           <Button
             size="small"
             color="error"
-            variant="text"
+            variant="outlined"
             onClick={() => setOpenDialog(false)}
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               İptal
             </Typography>
           </Button>
           <Button
             size="small"
-            variant="text"
+            variant="outlined"
             onClick={handleAddCategory}
             color="primary"
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               Ekle
             </Typography>
           </Button>

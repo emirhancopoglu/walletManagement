@@ -38,19 +38,14 @@ export default function PieChart() {
   }, [transactionData]);
 
   return (
-    <div
-      className={`flex w-1/2 max-md:w-full h-[30rem] shadow rounded-sm justify-center  ${
-        theme === "dark"
-          ? "border border-gray-600 bg-[#0F1214]"
-          : "border bg-gray-50"
-      }`}
-    >
+    <>
       {chartData && transactionData.length > 0 ? (
-        <>
+        <div className={`flex w-1/2 max-md:w-full h-[30rem] justify-center`}>
           <Pie
             data={chartData}
             options={{
               responsive: true,
+
               plugins: {
                 legend: {
                   position: "right",
@@ -60,18 +55,21 @@ export default function PieChart() {
                   text: "Gelir ve Gider Oranı",
                 },
               },
-              layout: {
-                padding: {
-                  left: 16,
-                  right: 16,
-                },
-              },
             }}
           />
-        </>
+        </div>
       ) : (
-        <>
-          <div className="flex flex-col px-4 py-4 justify-center items-">
+        <div
+          className={`flex w-1/2 max-md:w-full h-[30rem] justify-center ${
+            theme === "dark"
+              ? "border border-gray-600 bg-[#0F1214] rounded-sm"
+              : "border bg-gray-50 rounded-sm"
+          } `}
+        >
+          <div
+            className={`flex flex-col justify-center items-center 
+              `}
+          >
             <div className="font-semibold text-center">
               Herhangi Bir Veri Bulunamadı.
             </div>
@@ -79,8 +77,8 @@ export default function PieChart() {
               Grafiği görüntülemek için yeni işlem oluşturun.
             </div>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }

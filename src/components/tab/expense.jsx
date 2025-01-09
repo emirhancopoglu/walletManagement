@@ -105,7 +105,11 @@ export default function Expense() {
             endIcon={<SaveIcon />}
             onClick={handleSave}
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               Kaydet
             </Typography>
           </Button>
@@ -136,7 +140,11 @@ export default function Expense() {
               className="w-full"
               color="success"
             >
-              <Typography variant="button" style={{ fontWeight: "bold" }}>
+              <Typography
+                textTransform={"none"}
+                variant="button"
+                style={{ fontWeight: "bold" }}
+              >
                 Kategori Ekle
               </Typography>
             </Button>
@@ -187,7 +195,6 @@ export default function Expense() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        limit={2}
       />
 
       <Dialog
@@ -207,26 +214,39 @@ export default function Expense() {
             fullWidth
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleAddCategory();
+              }
+            }}
           />
         </DialogContent>
         <DialogActions>
           <Button
             size="small"
             color="error"
-            variant="text"
+            variant="outlined"
             onClick={() => setOpenDialog(false)}
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               İptal
             </Typography>
           </Button>
           <Button
             size="small"
-            variant="text"
+            variant="outlined"
             onClick={handleAddCategory}
             color="primary"
           >
-            <Typography variant="button" style={{ fontWeight: "bold" }}>
+            <Typography
+              textTransform={"none"}
+              variant="button"
+              style={{ fontWeight: "bold" }}
+            >
               Ekle
             </Typography>
           </Button>

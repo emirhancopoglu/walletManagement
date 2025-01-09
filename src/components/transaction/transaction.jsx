@@ -43,7 +43,7 @@ export default function Transaction() {
           </Tabs>
 
           <Box
-            className={`p-8 border rounded-sm mt-4 shadow max-md:p-4 ${
+            className={`p-8 border rounded-sm mt-4 shadow max-lg:p-2 ${
               theme === "dark" ? "border-gray-600" : ""
             }`}
           >
