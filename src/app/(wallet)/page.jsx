@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Transaction />
       <TransactionTable />
-      <div className="container mx-auto flex flex-row gap-4 max-md:flex-col mb-4 max-xl:px-2">
+      <div className="container mx-auto flex flex-row gap-4 max-md:flex-col mb-4 max-xl:px-2 items-start">
         <IncomeTable />
         <ExpenseTable />
       </div>
