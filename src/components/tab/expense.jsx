@@ -194,6 +194,8 @@ export default function Expense() {
         aria-hidden={openDialog ? "false" : "true"}
         open={openDialog}
         onClose={() => setOpenDialog(false)}
+        maxWidth="sm"
+        fullWidth
       >
         <DialogTitle>Gider Kategorisi Ekle</DialogTitle>
         <DialogContent>
@@ -211,7 +213,7 @@ export default function Expense() {
           <Button
             size="small"
             color="error"
-            variant="outlined"
+            variant="text"
             onClick={() => setOpenDialog(false)}
           >
             <Typography variant="button" style={{ fontWeight: "bold" }}>
@@ -220,7 +222,7 @@ export default function Expense() {
           </Button>
           <Button
             size="small"
-            variant="outlined"
+            variant="text"
             onClick={handleAddCategory}
             color="primary"
           >

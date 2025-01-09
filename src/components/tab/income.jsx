@@ -188,6 +188,8 @@ export default function Income() {
         aria-hidden={openDialog ? "false" : "true"}
         open={openDialog}
         onClose={() => setOpenDialog(false)}
+        maxWidth="sm"
+        fullWidth
       >
         <DialogTitle>Gelir Kategorisi Ekle</DialogTitle>
         <DialogContent>
@@ -205,7 +207,7 @@ export default function Income() {
           <Button
             size="small"
             color="error"
-            variant="outlined"
+            variant="text"
             onClick={() => setOpenDialog(false)}
           >
             <Typography variant="button" style={{ fontWeight: "bold" }}>
@@ -214,7 +216,7 @@ export default function Income() {
           </Button>
           <Button
             size="small"
-            variant="outlined"
+            variant="text"
             onClick={handleAddCategory}
             color="primary"
           >
