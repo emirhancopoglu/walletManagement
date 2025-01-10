@@ -1,5 +1,4 @@
 import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
 import { ThemeProvider } from "next-themes";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeSwitchProvider } from "@/context/theme/themeContext";
@@ -26,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${MontserratFont.variable} antialiased`}>
         <AppRouterCacheProvider>
-          <ThemeProvider>
+          <ThemeProvider enableSystem={false}>
             <ThemeSwitchProvider>
               <TransactionProvider>
                 <IncomeCategoryProvider>
