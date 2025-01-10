@@ -70,8 +70,8 @@ export default function TransactionTable() {
           component={Paper}
           sx={{
             width: { xs: "100%", sm: "100%", md: "100%" },
+            WebkitOverflowScrolling: "touch",
           }}
-          className="rounded-full max-md:w-full"
         >
           <Table aria-label="customized table" className="max-md:w-full">
             <TableHead>
@@ -109,7 +109,7 @@ export default function TransactionTable() {
                           </>
                         ) : (
                           <>
-                            <div className="w-full bg-red-200 font-semibold text-red-500 rounded-full">
+                            <div className="w-full bg-red-200 font-semibold text-red-500 rounded-full max-md:px-4">
                               {item.type}
                             </div>
                           </>
