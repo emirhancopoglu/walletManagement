@@ -75,7 +75,6 @@ export function TransactionProvider({ children }) {
         0
       );
 
-    // Gelirin sıfır olup olmadığını kontrol ediyoruz
     if (totalIncome === 0) {
       toast.warning("Henüz bir gelir girmediniz, gider oranı hesaplanamıyor.", {
         position: "top-center",

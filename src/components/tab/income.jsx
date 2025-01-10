@@ -6,9 +6,11 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  InputAdornment,
   MenuItem,
   TextField,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { useTransaction } from "@/context/transaction/transactionContext";
@@ -16,6 +18,7 @@ import { formatDate } from "@/utils/date/formatDate";
 import { useThemeContext } from "@/context/theme/themeContext";
 import { useIncomeCategory } from "@/context/category/incomeContext";
 import SaveIcon from "@mui/icons-material/Save";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 export default function Income() {
   const {
@@ -171,10 +174,15 @@ export default function Income() {
             fullWidth
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            placeholder="GG.AA.YYYY"
             slotProps={{
-              htmlInput: {
-                pattern: "\\d{2}\\.\\d{2}\\.\\d{4}",
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {useMediaQuery((theme) => theme.breakpoints.down("sm")) && (
+                      <CalendarTodayIcon />
+                    )}
+                  </InputAdornment>
+                ),
               },
             }}
           />
@@ -191,7 +199,7 @@ export default function Income() {
         draggable
         pauseOnHover
         theme="light"
-        className={" max-md:px-4 max-md:py-4"}
+        className={"max-md:px-4 max-md:py-4"}
       />
       <Dialog
         aria-hidden={openDialog ? "false" : "true"}
