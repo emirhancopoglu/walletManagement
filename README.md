@@ -1,3 +1,54 @@
+
+# Wallet Management
+
+**DEMO:** [**LIVE**](https://walletmanagement.vercel.app/)
+
+---
+
+## 🚀 Technologies Used
+
+- **[Next.js](https://nextjs.org/):** Modern React-based framework  
+- **[Material UI](https://mui.com/):** Flexible and stylish UI components  
+- **[Tailwind CSS](https://tailwindcss.com/):** Fast and modern CSS framework  
+- **[next-themes](https://github.com/pacocoursey/next-themes):** Dark mode management  
+- **[Chart.js](https://www.chartjs.org/):** Powerful and customizable charts  
+- **[framer-motion](https://www.framer.com/motion/):** Animations and transitions  
+- **[react-toastify](https://github.com/fkhadra/react-toastify):** Notification system  
+- **[react-icons](https://react-icons.github.io/react-icons/):** Wide icon support  
+
+
+---
+
+## 📸 Screenshots
+
+### Home Page - Without Data (Light and Dark Thema)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1d5b154b-968a-4ed3-ae17-de2bd0f00d17" alt="homepage-light"  />
+  <img src="https://github.com/user-attachments/assets/3b485968-07b5-473c-9bc7-8ad8d35e8a2e" alt="homepage-dark"  />
+</p>
+
+---
+
+### Home Page - With Data (Light and Dark Thema)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8976567c-0dbf-4283-b5da-b51e5971dcc4" alt="withdata-light"  />
+  <img src="https://github.com/user-attachments/assets/38111482-68bf-4d1f-bbff-e753e7e4b895" alt="withdata-dark"  />
+</p>
+
+---
+
+### Responsive Design
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4fd422ad-7509-4b2a-af07-e645d347bf8f" alt="homepage-responsive-light" width="45%" style="margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/e1c837f3-049c-4314-a2d8-710a41259269" alt="homepage-responsive-2" width="45%" />
+</p>
+
+---
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
