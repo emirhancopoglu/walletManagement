@@ -99,7 +99,7 @@ export default function Expense() {
             İşlemi Oluşturun
           </p>
           <Button
-            color="info"
+            color="success"
             size="small"
             variant="outlined"
             endIcon={<SaveIcon />}
@@ -240,7 +240,7 @@ export default function Expense() {
             size="small"
             variant="outlined"
             onClick={handleAddCategory}
-            color="primary"
+            color="success"
           >
             <Typography
               textTransform={"none"}

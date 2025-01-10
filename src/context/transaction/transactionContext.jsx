@@ -75,6 +75,20 @@ export function TransactionProvider({ children }) {
         0
       );
 
+    // Gelirin sıfır olup olmadığını kontrol ediyoruz
+    if (totalIncome === 0) {
+      toast.warning("Henüz bir gelir girmediniz, gider oranı hesaplanamıyor.", {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: theme === "dark" ? "dark" : "light",
+      });
+      return;
+    }
+
     const spentPercentage = (totalExpense / totalIncome) * 100;
 
     if (spentPercentage >= 80) {

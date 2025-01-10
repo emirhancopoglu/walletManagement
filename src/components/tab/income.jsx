@@ -96,7 +96,7 @@ export default function Income() {
             İşlemi Oluşturun
           </p>
           <Button
-            color="info"
+            color="success"
             size="small"
             variant="outlined"
             endIcon={<SaveIcon />}
@@ -231,7 +231,7 @@ export default function Income() {
             size="small"
             variant="outlined"
             onClick={handleAddCategory}
-            color="primary"
+            color="success"
           >
             <Typography
               textTransform={"none"}
