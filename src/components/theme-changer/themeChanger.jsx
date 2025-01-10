@@ -63,10 +63,10 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useThemeContext();
+  const { resolvedTheme, theme, setTheme } = useThemeContext();
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   return (

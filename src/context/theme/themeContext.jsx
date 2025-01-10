@@ -7,7 +7,7 @@ const ThemeContext = createContext();
 
 export const ThemeSwitchProvider = ({ children }) => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -24,7 +24,7 @@ export const ThemeSwitchProvider = ({ children }) => {
   });
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
       <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );

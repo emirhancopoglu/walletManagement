@@ -70,7 +70,7 @@ export default function PieChart() {
             className={`flex flex-col justify-center items-center 
               `}
           >
-            <div className="font-semibold text-center">
+            <div className="font-semibold text-center dark:text-white">
               Herhangi Bir Veri Bulunamadı.
             </div>
             <div className="text-sm">

@@ -23,9 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${MontserratFont.variable} antialiased`}>
+      <body className={`${MontserratFont.variable} antialiased `}>
         <AppRouterCacheProvider>
-          <ThemeProvider enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="system">
             <ThemeSwitchProvider>
               <TransactionProvider>
                 <IncomeCategoryProvider>
