@@ -69,8 +69,8 @@ export default function Expense() {
 
   const handleAddCategory = () => {
     if (newCategory.trim()) {
-      addCategory({ label: newCategory, value: newCategory.toLowerCase() });
-      setCategory(newCategory.toLowerCase());
+      addCategory({ label: newCategory, value: newCategory });
+      setCategory(newCategory);
       setNewCategory("");
       setOpenDialog(false);
     } else {
