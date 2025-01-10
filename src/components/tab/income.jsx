@@ -32,7 +32,6 @@ export default function Income() {
   } = useTransaction();
 
   const { theme } = useThemeContext();
-
   const { categories, addCategory } = useIncomeCategory();
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -172,6 +171,12 @@ export default function Income() {
             fullWidth
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            placeholder="GG.AA.YYYY"
+            slotProps={{
+              htmlInput: {
+                pattern: "\\d{2}\\.\\d{2}\\.\\d{4}",
+              },
+            }}
           />
         </div>
       </div>

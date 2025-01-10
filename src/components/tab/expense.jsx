@@ -27,11 +27,10 @@ export default function Expense() {
     setAmount,
     date,
     setDate,
-    type,
   } = useTransaction();
   const { theme } = useThemeContext();
-
   const { categories, addCategory } = useExpenseCategory();
+
   const [openDialog, setOpenDialog] = useState(false);
   const [newCategory, setNewCategory] = useState("");
 
@@ -174,14 +173,18 @@ export default function Expense() {
           />
 
           <TextField
-            id="outlined-basic"
-            variant="outlined"
             size="small"
             type="date"
             required
             fullWidth
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            placeholder="GG.AA.YYYY"
+            slotProps={{
+              htmlInput: {
+                pattern: "\\d{2}\\.\\d{2}\\.\\d{4}",
+              },
+            }}
           />
         </div>
       </div>
