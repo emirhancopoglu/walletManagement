@@ -60,17 +60,13 @@ export default function PieChart() {
         </div>
       ) : (
         <div
-          className={`flex w-1/2 max-md:w-full h-[30rem] justify-center ${
-            theme === "dark"
-              ? "border border-gray-600 bg-[#0F1214] rounded-sm"
-              : "border bg-gray-50 rounded-sm"
-          } `}
+          className={`flex w-1/2 max-md:w-full h-[30rem] justify-center border bg-gray-50 rounded-sm dark:border dark:border-gray-600 dark:bg-[#121212] dark:rounded-sm`}
         >
           <div
             className={`flex flex-col justify-center items-center 
               `}
           >
-            <div className="font-semibold text-center ">
+            <div className="font-semibold text-center">
               Herhangi Bir Veri Bulunamadı.
             </div>
             <div className="text-sm">
