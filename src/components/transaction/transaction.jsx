@@ -33,9 +33,7 @@ export default function Transaction() {
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
-            className={`rounded-sm border ${
-              theme === "dark" ? "border-gray-600" : ""
-            }`}
+            className={`rounded-sm border dark:border-gray-600`}
             variant="fullWidth"
           >
             <Tab icon={<AttachMoneySharpIcon />} />
@@ -43,9 +41,7 @@ export default function Transaction() {
           </Tabs>
 
           <Box
-            className={`p-8 border rounded-sm mt-4 shadow max-lg:p-2 ${
-              theme === "dark" ? "border-gray-600" : ""
-            }`}
+            className={`p-8 border rounded-sm mt-4 shadow max-lg:p-2 dark:border-gray-600`}
           >
             {value === 0 && <Income />}
             {value === 1 && <Expense />}

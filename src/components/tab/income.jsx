@@ -122,7 +122,7 @@ export default function Income() {
             label="Kategori"
             variant="outlined"
             size="small"
-            className="w-full"
+            className="w-full dark:bg-[#121212] dark:border-gray-600"
             value={category || ""}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -146,6 +146,7 @@ export default function Income() {
           </TextField>
 
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             id="outlined-basic"
             label="Açıklama"
             variant="outlined"
@@ -157,6 +158,7 @@ export default function Income() {
         </div>
         <div className="flex flex-row gap-4">
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             id="outlined-basic"
             label="Tutar"
             variant="outlined"
@@ -168,6 +170,7 @@ export default function Income() {
             onChange={(e) => setAmount(e.target.value)}
           />
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             size="small"
             type="date"
             required

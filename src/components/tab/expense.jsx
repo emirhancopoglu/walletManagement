@@ -119,12 +119,12 @@ export default function Expense() {
 
         <div className="flex flex-row gap-4 pb-4">
           <TextField
+            className="w-full dark:bg-[#121212] dark:border-gray-600"
             id="outlined-select"
             select
             label="Kategori"
             variant="outlined"
             size="small"
-            className="w-full"
             required
             value={category || ""}
             onChange={(e) => setCategory(e.target.value)}
@@ -153,6 +153,7 @@ export default function Expense() {
           </TextField>
 
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             id="outlined-basic"
             label="Açıklama"
             variant="outlined"
@@ -164,6 +165,7 @@ export default function Expense() {
         </div>
         <div className="flex flex-row gap-4">
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             id="outlined-basic"
             label="Tutar"
             variant="outlined"
@@ -176,6 +178,7 @@ export default function Expense() {
           />
 
           <TextField
+            className="dark:bg-[#121212] dark:border-gray-600"
             size="small"
             type="date"
             required
